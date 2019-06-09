@@ -1,7 +1,7 @@
 <template>
   <div style="text-align:left; margin:10px;">
     <span style="font-weight:bolder; margin-right: 20px; width:150px; float:left; padding:7px 0">{{customLabel | uppercase}}</span>
-    <input class="txt" type="text" :placeholder="customPlaceHolder" v-model="dataVal" :ref="label" @input="inputChanged">
+    <input class="txt" type="text" :placeholder="customPlaceHolder" v-model="dataVal" :ref="label" @input="inputEvent" @change="changeEvent">
     <!-- ==> {{dataVal}} -->
   </div>
 </template>
@@ -33,8 +33,11 @@ export default {
     this.dataVal = this.value
   },
   methods: {
-    inputChanged() {
+    inputEvent() {
       this.$emit('input', this.dataVal)
+    },
+    changeEvent() {
+      this.$emit("change", this.dataVal)
     }
   },
   watch: {

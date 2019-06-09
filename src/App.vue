@@ -77,6 +77,7 @@
 
 .button-success:hover {
   background-color: rgb(118, 212, 121);
+  cursor: pointer;
 }
 
 .router {
